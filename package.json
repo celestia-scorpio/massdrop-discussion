@@ -8,6 +8,7 @@
     "@babel/preset-react": "^7.0.0",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
+    "cluster": "^0.7.7",
     "cors": "^2.8.5",
     "faker": "^4.1.0",
     "font-awesome": "^4.7.0",
@@ -27,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack --mode \"production\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "react-dev": "webpack -d --watch",
@@ -43,7 +44,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.0",
+    "mongodb": "^3.1.13",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.0"

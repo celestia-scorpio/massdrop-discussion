@@ -8,9 +8,6 @@ var db = new sqlite3.Database('massdrop.db', (err)=>{
     console.log('Connected to the massdrop database.')
 })
 
-
-
-
 db.serialize(() => {
     db.each('SELECT * FROM user', (err,row) => {
         if(err){
@@ -19,7 +16,6 @@ db.serialize(() => {
         return(row)
     })
 })
-
 
 db.serialize(() => {
     db.each('SELECT * FROM product', (err,row) => {
@@ -30,8 +26,6 @@ db.serialize(() => {
     })
 })
 
-
-
 db.serialize(() => {
     db.each('SELECT * FROM messages', (err,row) => {
         if(err){
@@ -40,7 +34,6 @@ db.serialize(() => {
         return(row)
     })
 })
-
 
 db.serialize(() => {
     db.each('SELECT * FROM product_threads', (err,row) => {

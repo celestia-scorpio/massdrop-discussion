@@ -23,10 +23,10 @@ class App extends Component {
     const itemId = window.location.href.split("/")[4];
     this.getDiscussions(itemId);
   }
-
+  // http://ec2-3-88-137-68.compute-1.amazonaws.com/api/products/${itemId}/discussions
   getDiscussions(itemId) {
     axios
-      .get(`http://ec2-3-88-137-68.compute-1.amazonaws.com/api/products/${itemId}/discussions`)
+      .get(`/api/products/${itemId}/discussions`)
       
       .then(res => {
         // console.log(res);

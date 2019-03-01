@@ -1,62 +1,53 @@
-import React, { Component } from 'react'
-import './stylesheet/style.css';
-import './stylesheet/iconFonts.css';
-import './stylesheet/index.css';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-
+import React, { Component } from "react";
+import "./stylesheet/style.css";
+import "./stylesheet/iconFonts.css";
+import "./stylesheet/index.css";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 export class Reply extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            isAdded: false,
-            comment: props.comment,
-            editorHtml: '',
-            isEditorShown: false,
-            quillPlaceholder: 'Add a reply...',
-        };
+    this.state = {
+      isAdded: false,
+      comment: props.comment,
+      editorHtml: "",
+      isEditorShown: false,
+      quillPlaceholder: "Add a reply..."
+    };
 
-        // this.handleChange = this.handleChange.bind(this);
-        // this.createComment = this.createComment.bind(this);
-    }
+    // this.handleChange = this.handleChange.bind(this);
+    // this.createComment = this.createComment.bind(this);
+  }
 
-    // handleChange(html) {
-    //     this.setState({ editorHtml: html });
-    // }
+  // handleChange(html) {
+  //     this.setState({ editorHtml: html });
+  // }
 
-    // createComment() {
-    //     const { comment, editorHtml } = this.state;
-    //     console.log('comment', comment);
-    //     this.props.submitReply(comment.comment_review_id, editorHtml);
-        //axios post request  - saving components (comment from props)
-        //is success - need to render without refreshing
-        // e.preventDefault()
-    // }
+  // createComment() {
+  //     const { comment, editorHtml } = this.state;
+  //     console.log('comment', comment);
+  //     this.props.submitReply(comment.comment_review_id, editorHtml);
+  //axios post request  - saving components (comment from props)
+  //is success - need to render without refreshing
+  // e.preventDefault()
+  // }
 
+  //   <ReactQuill value={this.state.text}
+  //                               onChange={this.handleChange} />
+  // onClick={() => {
+  //                 this.setState({ isEditorShown: false });
 
-    //   <ReactQuill value={this.state.text}
-    //                               onChange={this.handleChange} />
-    // onClick={() => {
-    //                 this.setState({ isEditorShown: false });
-
-    render() {
-        return (
-
-
-            <div className="reply_pop">
-				{this.state.isEditorShown ? (
-					<div>hooooooooo</div>
-				):null}
-			</div>
-
-    )}
+  render() {
+    return (
+      <div className="reply_pop">
+        {this.state.isEditorShown ? <div>hooooooooo</div> : null}
+      </div>
+    );
+  }
 }
-export default Reply; 
-                        
-
-
+export default Reply;
 
 // <div class="comment__field--reply comment__field comment__field--focused">
 // <div class="row row--comment_field_main">
@@ -67,7 +58,7 @@ export default Reply;
 //         <div class="row reply_to__user">
 //             <div class="flexItem flexContainer user user--default comment__reply_owner">
 //                 <div class="avatar__wrapper user__avatar">
-//                     <img alt="" class="avatar" src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" /> 
+//                     <img alt="" class="avatar" src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" />
 //                 </div>
 //                 <div class="flexItem">
 //                     <div class="flexItem flexContainer wd_flexWrap--nowrap d_flexWrap--nowrap wt_flexWrap--nowrap nt_flexWrap--nowrap p_flexWrap--nowrap user__info--main">

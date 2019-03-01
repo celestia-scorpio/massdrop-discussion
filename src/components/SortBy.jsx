@@ -1,81 +1,72 @@
-import React, { Component } from 'react'
-import './stylesheet/style.css';
-import './stylesheet/iconFonts.css';
-import './stylesheet/index.css';
-import PropTypes from 'prop-types';
-
-
+import React, { Component } from "react";
+import "./stylesheet/style.css";
+import "./stylesheet/iconFonts.css";
+import "./stylesheet/index.css";
+import PropTypes from "prop-types";
 
 export class SortBy extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            displayMenu: false,
-          };
-     
-       this.showDropdownMenu = this.showDropdownMenu.bind(this);
-       this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
-     
-     };
-     
-     showDropdownMenu(event) {
-         event.preventDefault();
-         this.setState({ displayMenu: true }, () => {
-         document.addEventListener('click', this.hideDropdownMenu);
-         });
-       }
-     
-       hideDropdownMenu() {
-         this.setState({ displayMenu: false }, () => {
-           document.removeEventListener('click', this.hideDropdownMenu);
-         });
-     
-       }
-     
-       render() {
-         return (
+    this.state = {
+      displayMenu: false
+    };
 
+    this.showDropdownMenu = this.showDropdownMenu.bind(this);
+    this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+  }
 
-           
-        <div class="Menu__MenuTrigger Menu__MenuTrigger__inactive communities__filter2--current link_button--primary" onClick={this.showDropdownMenu}>
+  showDropdownMenu(event) {
+    event.preventDefault();
+    this.setState({ displayMenu: true }, () => {
+      document.addEventListener("click", this.hideDropdownMenu);
+    });
+  }
 
+  hideDropdownMenu() {
+    this.setState({ displayMenu: false }, () => {
+      document.removeEventListener("click", this.hideDropdownMenu);
+    });
+  }
 
-             <div  className="discussion__sort_dropdown discussion__sort_dropdown" >
-             <div className="sort_dropdown_main" >
+  render() {
+    return (
+      <div
+        class="Menu__MenuTrigger Menu__MenuTrigger__inactive communities__filter2--current link_button--primary"
+        onClick={this.showDropdownMenu}
+      >
+        <div className="discussion__sort_dropdown discussion__sort_dropdown">
+          <div className="sort_dropdown_main">
+            <div className="sort_dropdown"> SORT BY</div>
+          </div>
+          <div class="icon_container">
+            <i class="icon-down-open icon" />
+          </div>
 
-              <div className="sort_dropdown" > SORT BY</div> 
-             </div>
-                <div class="icon_container">
-                    <i class="icon-down-open icon"></i>
-                 </div>
-                
-               { this.state.displayMenu ? (
-
-
-               <ul className="dropdown_index communities__filter2_list" >
-              <li className="hover_dropdown"><a className="active" href="#Create Page">NEWEST</a></li>
-              <li className="hover_dropdown"><a href="#Manage Pages">TOP CONVERSATIONS</a></li>
-              <li className="hover_dropdown"><a href="#Create Ads">LATEST REPLY</a></li>
-    
-               </ul>
-             ):
-             (
-               null
-             )
-             }
-     
-            </div>
-            </div>
-     
-         );
-       }
+          {this.state.displayMenu ? (
+            <ul className="dropdown_index communities__filter2_list">
+              <li className="hover_dropdown">
+                <a className="active" href="#Create Page">
+                  NEWEST
+                </a>
+              </li>
+              <li className="hover_dropdown">
+                <a href="#Manage Pages">TOP CONVERSATIONS</a>
+              </li>
+              <li className="hover_dropdown">
+                <a href="#Create Ads">LATEST REPLY</a>
+              </li>
+            </ul>
+          ) : null}
+        </div>
+      </div>
+    );
+  }
 }
-export default SortBy; 
-        
-        
-        
- {/* <div class="discussion__sort_dropdown discussion__sort_dropdown">
+export default SortBy;
+
+{
+  /* <div class="discussion__sort_dropdown discussion__sort_dropdown">
                     <div class="sort_dropdown">
                         <div class="Menu communities__filter2">
                             <div class="Menu__MenuTrigger Menu__MenuTrigger__inactive communities__filter2--current link_button--primary" tabindex="0" role="button" aria-owns="communities_filter_menu" aria-haspopup="true">
@@ -99,4 +90,5 @@ export default SortBy;
                         </div>
                     </div>
                 </div>
-            </div>  */}
+            </div>  */
+}

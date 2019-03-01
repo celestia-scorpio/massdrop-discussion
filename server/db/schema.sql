@@ -41,6 +41,7 @@ CREATE TABLE `product_threads`
 
 DROP TABLE IF EXISTS `thread`;
 
+-- not referenced
 CREATE TABLE `thread`
 (
   -- `id` INTEGER AUTO_INCREMENT DEFAULT NULL,
@@ -55,6 +56,7 @@ CREATE TABLE `thread`
 
 DROP TABLE IF EXISTS `thread_discussion_participants`;
 
+-- not referenced
 CREATE TABLE `thread_discussion_participants`
 (
 -- `id` INTEGER PRIMARY KEY,
