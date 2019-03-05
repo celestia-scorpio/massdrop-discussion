@@ -10,7 +10,7 @@
 
 const faker = require('faker');
 
-const dataPoints = 500000 //MongoDB Amount
+const dataPoints = 50000 //MongoDB Amount
 
 let generation = function() {
   let output = [];
