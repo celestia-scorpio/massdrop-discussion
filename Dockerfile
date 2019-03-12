@@ -1,3 +1,5 @@
+# SDC Service
+
 # node
 FROM node
 
@@ -12,7 +14,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# Make port 80 available to the world outside this container
+# Make port 3005 available to the world outside this container
 EXPOSE 3005
 
 # Run server.js when the container launches

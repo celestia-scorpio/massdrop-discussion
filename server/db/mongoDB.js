@@ -1,3 +1,5 @@
+// MongoDB data insertion w/ generation.js script
+
 const MongoClient = require("mongodb").MongoClient;
 const cluster = require("cluster");
 const now = require('performance-now')
@@ -6,7 +8,7 @@ var url = "mongodb://localhost:27017/";
 
 MongoClient.connect(url, function(err, db) {
   if (err) console.log("error");
-  console.log("Database created!");
+  console.log("mongodb database connected");
   const myDb = db.db("massdrop_discussion");
   
 
