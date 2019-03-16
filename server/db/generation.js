@@ -4,32 +4,50 @@
  * 
  * generation script for predefined data points
  * re-assessed and stream-lined tables
- * 
+ * require first message to be parent true
  * 
  */
 
 const faker = require('faker');
 
 const dataPoints = 50000 //MongoDB Amount
+let counter = 0;
+let totalCount = 0;
 
-let generation = function() {
-  let output = [];
-  for(let i = 1; i < dataPoints+1; i++){
-    output.push({
-      id: i,
-      name: faker.commerce.product(),
-      createdAt: faker.date.recent(),
-      like_count: generateNumber(), //generate random numbers high hundreds
-      body: faker.lorem.paragraphs(),
-      parent_child: booleanGeneration(), //generate 1 & 0's
+// 
+generation = function(initialValue, terminationValue) {
+  let full_output = [];
 
-      username: faker.name.firstName(),
-      avatar: awsLINKS()
+  // product_id iterator
+  for(let i = initialValue; i < terminationValue+1; i++){ //clustering generation
+    let object_output = {};
+    let array_output = [];
+    let thread_flag = false;
+    // i product_id
+    object_output.id = i;
+    // want a format of {id: i, data: [{id: i, name: "", createdAt: date}]}
+    totalCount += counter;
+    for(let j = 1 + totalCount; j < getRandomInt(5,7) + totalCount; j++){  //unique_id iterator
+      array_output.push({
+        id: i,
+        name: faker.commerce.product(),
+        createdAt: faker.date.recent(),
+        like_count: generateNumber(), //generate random numbers high hundreds
+        body: faker.lorem.paragraphs(),
+        parent_child: booleanGeneration(thread_flag), //generate 1 & 0's
+  
+        username: faker.name.firstName(),
+        avatar: awsLINKS()
+  
+      })
+      thread_flag = true
+      counter++;
+    }
 
-    })
+    object_output.data = array_output;
+    full_output.push(object_output)
   }
-
-  return output;
+  return full_output;
 }
 
 function getRandomInt(min, max) {
@@ -42,7 +60,10 @@ function generateNumber() {
   return getRandomInt(147, 983)
 }
 
-function booleanGeneration() {
+function booleanGeneration(flag) {
+  if (!flag){
+    return 1
+  }
   return getRandomInt(0,1)
 }
 
@@ -64,4 +85,4 @@ function awsLINKS(){
 }
 
 // console.log(generation())
-module.exports = generation();
+module.exports = {generation}
